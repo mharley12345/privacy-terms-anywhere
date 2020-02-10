@@ -24,7 +24,7 @@ STATIC_URL = '/static/'
 (pdb)
 STATIC_ROOT = BASE_DIR
 
-DJANGO_SETTINGS_MODULE= config('DJANGO_SETTINGS_MODULE')
+DJANGO_SETTINGS_MODULE= os.environ.get('DJANGO_SETTINGS_MODULE')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
