@@ -1,0 +1,40 @@
+<head>
+    <meta charset="utf-8">
+    <title>Privacy Policy</title>
+    <style>
+        body {font-family:sans-serif; padding:1em 2em;}
+        p {width:50em;}
+        label {display:block; float:left; width:10em;}
+        .errorlist {color:#f00;}
+    </style>
+</head>
+<body>
+<h1>Privacy Policy Questions</h1>
+    <form action ="/homepage/templates/homepage/policy/" method="post">
+        <label for="business_name">Business Name: </label>
+        <input id="business_name" type="text" name="business_name" 
+                value="{{business_name}}"/>
+        <label for="site_name">Website: </label>
+        <input id="site_name" type="text" name="site_name" value="{{site_name}}">
+        <label for="email">Email: </label>
+        <input id="email" type="email" name="email" value="{{email}}">
+        <label for="street_address">Street Address: </label>
+        <input id= "street_address" type="text" name="street_address" value="{{street_address}}">
+       <label for="city">City: </label>
+        <input id= "city" type="text" name="city" value="{{city}}">
+        <label for="state">State:</label>
+        <input id= "state" type="text" name="state" value="{{state}}">
+        <label for ="zipcode">Zipcode: </label>
+        <input id="zipcode" type="number" name="zipcode" value="{{zipcode}}">
+        <input type="submit" value="OK">
+
+          
+    
+    
+    </form>
+
+
+
+
+</body>
+</html>
