@@ -24,15 +24,15 @@ STATIC_URL = '/static/'
 (pdb)
 STATIC_ROOT = BASE_DIR
 
-#DJANGO_SETTINGS_MODULE= config('DJANGO_SETTINGS_MODULE')
+DJANGO_SETTINGS_MODULE= config('DJANGO_SETTINGS_MODULE')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-(pdb).set_trace
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-(pdb).set_trace
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'ppa.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-#import dj_database_url
+import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -167,7 +167,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SENDGRID_API_KEY = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
@@ -175,5 +175,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD= SENDGRID_API_KEY
 EMAIL_USE_TLS = True
+import django_heroku
+django_heroku.settings(locals())
 
 
