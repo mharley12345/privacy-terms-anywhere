@@ -1,5 +1,11 @@
-from django.http import HttpResponse
-from django.template import loader
+
+
+""""
+ from django.http import HttpResponse
+
+ 
+ 
+ from django.template import loader
 
 def policy(request):
     template = loader.get_template('homepage/policy.html')
@@ -8,3 +14,10 @@ def policy(request):
 def answers(request):
     template = loader.get_template('homepage/answers.html')
     return HttpResponse(template.render())
+
+                                                            """
+
+
+
+
+                                                            

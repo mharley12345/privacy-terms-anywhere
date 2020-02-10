@@ -63,13 +63,13 @@ def login(request):
                 {"error": "Unable to log in with provided credentials."}, safe=True, status=500)
         return response
 
-@csrf_exempt
+"""@csrf_exempt
 @api_view(["GET"])
 def get_policy(request):
     fields = ['business_name','site_name','email','street_address','city','state','zipcode']
     serializer = SamplePolicySerializer
     response = serializer
-    return response
+    return response"""
 
 @csrf_exempt
 @api_view(['POST'])

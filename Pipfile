@@ -8,17 +8,18 @@ autopep8 = "*"
 
 [packages]
 django = "*"
-python-decouple = "*"
 djangorestframework = "*"
 django-rest-auth = "*"
 django-allauth = "*"
 django-forms-builder = "*"
 passlib = "*"
-decouple = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 dj-database-url = "*"
 whitenoise = "*"
+django-cors-headers = "*"
+python-dotenv = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.8"

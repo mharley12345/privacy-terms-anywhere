@@ -9,25 +9,32 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-from decouple import config
-import os,sys
-import whitenoise
 
+import pdb
+import dotenv
+import os
+import sys
+import whitenoise
+from dotenv import load_dotenv
+
+load_dotenv()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = '/static/'
-
+(pdb)
 STATIC_ROOT = BASE_DIR
 
-
+#DJANGO_SETTINGS_MODULE= config('DJANGO_SETTINGS_MODULE')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECERT_KEY')
+(pdb).set_trace
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+(pdb).set_trace
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -52,6 +59,8 @@ INSTALLED_APPS = [
     'homepage',
     'passlib',
     'database',
+    'dotenv',
+    'decouple',
     
 ]
 
@@ -69,10 +78,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ppa.urls'
 CORS_ORIGIN_WHITELIST =[
-    "http://localhost:3000"
+    "http://*.netlify.com*"
 ]
 CORS_ALLOW_METHODS = [
-        'DELETE',
+    'DELETE',
     'GET',
     'OPTIONS',
     'PATCH',
@@ -101,7 +110,7 @@ WSGI_APPLICATION = 'ppa.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-import dj_database_url
+#import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
