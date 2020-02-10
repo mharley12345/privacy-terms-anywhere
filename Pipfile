@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+autopep8 = "*"
 
 [packages]
 django = "*"
@@ -11,6 +12,13 @@ python-decouple = "*"
 djangorestframework = "*"
 django-rest-auth = "*"
 django-allauth = "*"
+django-forms-builder = "*"
+passlib = "*"
+decouple = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+dj-database-url = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.8"

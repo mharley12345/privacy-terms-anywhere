@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from rest_framework.decorators import api_view
+from database.models import Person,Policy
+from rest_framework import serializers,fields
+from database.views import SamplePolicySerializer
 import json
-from database.models import Person
 
 @csrf_exempt
 @api_view(['POST'])
@@ -46,10 +47,10 @@ def register(request):
 def login(request):
     print(request)
     data = json.loads(request.body)
-    username = data['username']
+    email = data['email']
     password = data['password']
     try:
-        user = User.objects.get(username=username)
+        user = Person.objects.get(email=email)
     except User.DoesNotExist:
         response = JsonResponse(
             {"error": "User does not exist."}, safe=True, status=500)
@@ -60,4 +61,27 @@ def login(request):
         else:
             response = JsonResponse(
                 {"error": "Unable to log in with provided credentials."}, safe=True, status=500)
+        return response
+
+@csrf_exempt
+@api_view(["GET"])
+def get_policy(request):
+    fields = ['business_name','site_name','email','street_address','city','state','zipcode']
+    serializer = SamplePolicySerializer
+    response = serializer
+    return response
+
+@csrf_exempt
+@api_view(['POST'])
+def answers(request):
+    print(request)
+    data = json.loads(request.body)
+    business_name= data['business_name']
+    site_name = data['site_name']
+    email = data['email']
+    street_address = data['street_address']
+    city = data['city']
+    state = data['state']
+    zipcode = data['zipcode']
+    response = render('/homepage/answers.html')   
     return response

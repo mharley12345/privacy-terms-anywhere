@@ -2,6 +2,14 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Person
+from .models import *
 # Register your models here.
-admin.register(Person)
+admin.site.register(Person)
+admin.site.register(SamplePolicys)
+
+
+
+
+#Changes Header
+
+admin.site.site_header ="Privacy Policy Generator"
