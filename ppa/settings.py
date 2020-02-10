@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'passlib',
     'database',
     'dotenv',
-    'decouple',
+  
     
 ]
 
